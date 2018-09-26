@@ -1,0 +1,12 @@
+<!--pages/home/home.wxml-->
+<view class="home-header">
+  <input placeholder="搜索优惠商品" class="home-header-search" type="text" />
+  <scroll-view class="scroll-view_H" scroll-x="true">
+    <block wx:for="{{goodsOptList}}" wx:key="{{index}}">
+      <!-- <view data-oid="{{item.opt_id}}" class="scroll-view-items" bindtap="getGoodsOptDetail"> -->
+      <view data-oid="{{item.opt_id}}" data-index="{{index}}" class="{{index==activeIndex?'scroll-view-items active':'scroll-view-items'}}" bindtap="getGoodsOptDetail">
+        <text>{{item.opt_name}}</text>
+      </view>
+    </block>
+  </scroll-view>
+</view>

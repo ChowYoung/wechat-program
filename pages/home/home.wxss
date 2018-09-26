@@ -1,0 +1,48 @@
+/* pages/home/home.wxss */
+
+.home-header {
+  height: 88px;
+  background-color: #f7de62;
+  padding: 10px 0;
+}
+
+.home-header-search {
+  background-color: #fff;
+  border-radius: 10px;
+  height: 40px;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 14px;
+  padding: 0 20px;
+}
+
+.scroll-view_H {
+  white-space: nowrap;
+  display: flex;
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+}
+
+.scroll-view-items {
+  width: 18%;
+  display: inline-block;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  color: #3d3d3d;
+}
+
+.scroll-view-items text {
+  line-height: 40px;
+  height: 40px;
+  display: inline-block;
+  padding:0 5px;
+  letter-spacing: 1px;
+}
+
+.scroll-view-items.active text {
+  border-bottom: 2px solid #3d3d3d;
+  transition:width 2s ease 2s;
+}
