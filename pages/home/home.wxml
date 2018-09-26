@@ -1,12 +1,26 @@
 <!--pages/home/home.wxml-->
 <view class="home-header">
   <input placeholder="搜索优惠商品" class="home-header-search" type="text" />
-  <scroll-view class="scroll-view_H" scroll-x="true">
+  <scroll-view class="tag-scroll-view_H" scroll-x="true">
     <block wx:for="{{goodsOptList}}" wx:key="{{index}}">
-      <!-- <view data-oid="{{item.opt_id}}" class="scroll-view-items" bindtap="getGoodsOptDetail"> -->
-      <view data-oid="{{item.opt_id}}" data-index="{{index}}" class="{{index==activeIndex?'scroll-view-items active':'scroll-view-items'}}" bindtap="getGoodsOptDetail">
+      <view data-oid="{{item.opt_id}}" data-index="{{index}}" class="{{index==activeIndex?'tag-scroll-view-items active':'tag-scroll-view-items'}}" bindtap="getGoodsOptType">
         <text>{{item.opt_name}}</text>
       </view>
     </block>
   </scroll-view>
 </view>
+<scroll-view scroll-y="true" class="list-scroll-view">
+  <block wx:for="{{productList}}" wx:key="{{index}}">
+    <view class="list-scroll-view-items">
+      <image class="list-scroll-view-items-img" src="{{item.goods_thumbnail_url}}" lazy-load="true"></image>
+      <text class="list-scroll-view-items-name">
+      {{item.goods_name}}
+      </text>
+      <text class="list-scroll-view-items-coupon">5元优惠券</text>
+      <text class="list-scroll-view-items-count">
+      销量{{item.sold_quantity}}
+      </text>
+      <text class="list-scroll-view-items-price"><text>¥</text>{{item.min_normal_price}}</text>
+    </view>
+  </block>
+</scroll-view>

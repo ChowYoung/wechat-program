@@ -1,6 +1,7 @@
 // pages/home/home.js
 
 import getHomeTagData from '../../data/GetHomeTag.js'
+import productList from '../../data/ProductList.js'
 
 Page({
   /**
@@ -8,7 +9,8 @@ Page({
    */
   data: {
     goodsOptList: [],
-    activeIndex: 0
+    activeIndex: 0,
+    productList: []
 
   },
 
@@ -24,6 +26,7 @@ Page({
    */
   onReady: function() {
     this.getGoodsOptList();
+    this.getProductList();
   },
 
   /**
@@ -77,13 +80,22 @@ Page({
     })
   },
 
-  getGoodsOptDetail(el) {
+  getGoodsOptType(el) {
     const {
       oid,
       index
     } = el.currentTarget.dataset
     this.setData({
       activeIndex: index
+    })
+  },
+
+  getProductList() {
+    const {
+      goods_search_response
+    } = productList;
+    this.setData({
+      productList: goods_search_response.goods_list
     })
   }
 })
