@@ -1,0 +1,159 @@
+/* pages/detail/detail.wxss */
+
+.detial-wrap {
+  height: 100%;
+}
+
+.clearfloat:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
+}
+
+.clearfloat {
+  zoom: 1;
+}
+
+.swiper-wrap, .slide-image {
+  width: calc(100vw);
+  height: calc(78vw);
+}
+
+.detail-header {
+  padding: 15px 10px;
+}
+
+.tags {
+  font-size: 13px;
+  height: 26px;
+  line-height: 26px;
+  background-color: #f7de62;
+  padding: 0 20px;
+  color: #4f4f4f;
+  text-align: center;
+  border-radius: 6px;
+  float: left;
+}
+
+.price {
+  color: #4f4f4f;
+  font-size: 25px;
+  padding: 0 15px;
+  height: 26px;
+  line-height: 26px;
+  float: left;
+  font-weight: bold;
+}
+
+.before-price {
+  color: #ccc;
+  font-size: 13px;
+  float: left;
+  height: 26px;
+  line-height: 30px;
+}
+
+.detail-main {
+  padding: 0 10px;
+  font-size: 17px;
+  color: #4f4f4f;
+}
+
+.detail-main text {
+  display: block;
+}
+
+.detail-main .detail-main-coupon {
+  display: inline-block;
+  color: red;
+  font-size: 13px;
+  height: 15px;
+  line-height: 15px;
+  margin: 10px 20px 10px 0;
+}
+
+.detail-main .detail-main-coupon-less {
+  display: inline-block;
+  font-size: 15px;
+  height: 15px;
+  line-height: 15px;
+}
+
+.detail-footer {
+  padding: 0 10px;
+  font-size: 13px;
+  color: #ccc;
+}
+
+.detail-footer text {
+  padding-right: 15px;
+}
+
+.detail-info {
+  margin: 10px 10px 70px;
+  background: #f4f4f4;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  line-height: 30px;
+  color: #4f4f4f;
+}
+
+.detail-info text {
+  font-size: 15px;
+  height: 26px;
+  line-height: 26px;
+  background-color: #f7de62;
+  padding: 0 15px;
+  color: #4f4f4f;
+  text-align: center;
+  border-radius: 15px;
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.button-group {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 60px;
+  background: #393939;
+}
+
+.button-group view {
+  width: 33%;
+  text-align: center;
+  float: left;
+}
+
+.button-group view.first {
+  border-right: 1px solid #303030;
+}
+
+.button-group view.share {
+  background: #c20015;
+  height: 60px;
+  line-height: 60px;
+  float: right;
+  border-right: 0;
+  font-size: 19px;
+  color: #fff;
+}
+
+.button-group view text {
+  display: block;
+  color: #fff;
+  font-size: 15px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.button-group view text:nth-of-type(2) {
+  font-size: 13px;
+  height: 20px;
+  line-height: 5px;
+}

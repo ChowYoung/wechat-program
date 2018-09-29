@@ -1,32 +1,37 @@
-// pages/home/home.js
+// pages/detail/detail.js
 
-import getHomeTagData from '../../data/GetHomeTag.js'
-import productList from '../../data/ProductList.js'
+import ProductDetail from '../../data/ProductDetail.js'
 
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    goodsOptList: [],
-    activeIndex: 0,
-    productList: []
-
+    productDetailId: '',
+    detailInfo: {},
+    scrollHeight: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.setData({
+      productDetailId: options.id || 0,
+      detailInfo: ProductDetail.goods_details[0],
+      scrollHeight: 500
+    })
+    wx.setBackgroundColor({
+      backgroundColor: '#f7de62'
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    this.getGoodsOptList();
-    this.getProductList();
+
   },
 
   /**
@@ -70,38 +75,9 @@ Page({
   onShareAppMessage: function() {
 
   },
-
-  getGoodsOptList() {
-    const {
-      data
-    } = getHomeTagData;
-    this.setData({
-      goodsOptList: data.goods_opt_list
-    })
-  },
-
-  getGoodsOptType(el) {
-    const {
-      oid,
-      index
-    } = el.currentTarget.dataset
-    this.setData({
-      activeIndex: index
-    })
-  },
-
-  getProductList() {
-    const {
-      goods_search_response
-    } = productList;
-    this.setData({
-      productList: goods_search_response.goods_list
-    })
-  },
-
-  jumpUrl(event) {
+  jumpUrl() {
     wx.navigateTo({
-      url: `/pages/detail/detail?id=${event.currentTarget.dataset.gid}`
+      url: `/pages/openwebview/openwebview`
     })
   }
 })

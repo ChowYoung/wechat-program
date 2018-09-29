@@ -1,0 +1,47 @@
+<!--pages/detail/detail.wxml-->
+<scroll-view class="detial-wrap" scroll-y>
+  <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" class="swiper-wrap">
+    <block wx:for="{{detailInfo.goods_gallery_urls}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" mode="aspectFill" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="detail-header clearfloat">
+    <text class="tags">券后价</text>
+    <text class="price">¥{{detailInfo.after_coupon_price}}</text>
+    <text class="before-price">原价：¥{{detailInfo.min_group_price}}</text>
+  </view>
+
+  <view class="detail-main clearfloat">
+    <text>{{detailInfo.goods_name}}</text>
+    <text class="detail-main-coupon">{{detailInfo.coupon_discount}}元优惠券</text>
+    <text class="detail-main-coupon-less">券剩余：{{detailInfo.coupon_remain_quantity}}/{{detailInfo.coupon_total_quantity}}</text>
+  </view>
+
+  <view class="detail-footer clearfloat">
+    <text>销量：{{detailInfo.sold_quantity}}</text>
+    <text>商品评分：4.65</text>
+  </view>
+
+  <view class="detail-info clearfloat">
+    <text>推荐</text>{{detailInfo.goods_desc}}
+  </view>
+
+</scroll-view>
+<view class="button-group">
+  <view class="first" bindtap='jumpUrl'>
+    <text>自买</text>
+    <text>¥{{detailInfo.after_coupon_price}}</text>
+  </view>
+
+  <view>
+    <text>推手自买</text>
+    <text>¥{{detailInfo.after_coupon_price}}  (赚¥{{detailInfo.after_coupon_price}})</text>
+  </view>
+
+  <view class="share">
+    分享
+  </view>
+</view>
