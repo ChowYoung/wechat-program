@@ -1,0 +1,13 @@
+<!--pages/search/search.wxml-->
+<view class="search-wrap">
+  <view class="search-header">
+    <input placeholder="搜索优惠商品" class="search-header-search" type="text" confirm-type="search" />
+    <text class="search-btn">搜索</text>
+  </view>
+  <view class="search-main">
+    <text class="search-title">热搜</text>
+    <block wx:for="{{searchKeyWords}}">
+      <text class="search-tags">{{item.search_name}}</text>
+    </block>
+  </view>
+</view>

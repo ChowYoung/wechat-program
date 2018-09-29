@@ -103,5 +103,11 @@ Page({
     wx.navigateTo({
       url: `/pages/detail/detail?id=${event.currentTarget.dataset.gid}`
     })
+  },
+
+  handlerFocus(){
+    wx.navigateTo({
+      url: `/pages/search/search`
+    })
   }
 })

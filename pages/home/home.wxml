@@ -1,6 +1,7 @@
 <!--pages/home/home.wxml-->
 <view class="home-header">
-  <input placeholder="搜索优惠商品" class="home-header-search" type="text" />
+  <view class="home-header-search" bindtap='handlerFocus'>搜索优惠商品</view>
+  <!-- <input placeholder="搜索优惠商品" class="home-header-search" type="text" bindfocus="handlerFocus"/> -->
   <scroll-view class="tag-scroll-view_H" scroll-x="true">
     <block wx:for="{{goodsOptList}}" wx:key="{{index}}">
       <view data-oid="{{item.opt_id}}" data-index="{{index}}" class="{{index==activeIndex?'tag-scroll-view-items active':'tag-scroll-view-items'}}" bindtap="getGoodsOptType">

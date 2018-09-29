@@ -12,12 +12,14 @@
 
 .home-header-search {
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 20px;
   height: 40px;
-  width: 80%;
+  line-height: 40px;
+  width: calc(83vw);
   margin: 0 auto;
   font-size: 14px;
-  padding: 0 20px;
+  padding-left: calc(7vw);
+  color: #848484;
 }
 
 .tag-scroll-view_H {
