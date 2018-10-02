@@ -1,7 +1,5 @@
 // pages/detail/detail.js
 
-import ProductDetail from '../../data/ProductDetail.js'
-
 Page({
 
   /**
@@ -10,20 +8,34 @@ Page({
   data: {
     productDetailId: '',
     detailInfo: {},
-    scrollHeight: ''
+    scrollHeight: '',
+    jumpUrl: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      productDetailId: options.id || 0,
-      detailInfo: ProductDetail.goods_details[0],
-      scrollHeight: 500
-    })
-    wx.setBackgroundColor({
-      backgroundColor: '#f7de62'
+    wx.request({
+      url: 'https://api.laituike.com/cps/api/product/getGoodsDetail',
+      data: {
+        "goods_id_list": `[${options.id}]`
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'POST',
+      success: (res) => {
+        this.setData({
+          productDetailId: options.id || 0,
+          detailInfo: res.data.data.goods_details[0],
+          scrollHeight: 500,
+          goods_gallery_urls: JSON.parse(res.data.data.goods_details[0].goods_gallery_urls)
+        })
+        wx.setBackgroundColor({
+          backgroundColor: '#f7de62'
+        })
+      }
     })
   },
 
@@ -38,7 +50,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    console.log(this)
   },
 
   /**
@@ -76,8 +88,20 @@ Page({
 
   },
   jumpUrl() {
-    wx.navigateTo({
-      url: `/pages/openwebview/openwebview`
+    wx.request({
+      url: 'https://api.laituike.com/cps/api/product/getGoodsPromotionUrl',
+      data: {
+        "goods_id_list": `[${this.data.productDetailId}]`
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'POST',
+      success: (res) => {
+        wx.navigateTo({
+          url: `/pages/openwebview/openwebview?url=${res.data.data.goods_promotion_url_list[0].we_app_web_view_url}`
+        })
+      }
     })
   }
 })

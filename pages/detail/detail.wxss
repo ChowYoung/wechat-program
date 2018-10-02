@@ -131,7 +131,17 @@
 }
 
 .button-group view.first {
-  border-right: 1px solid #303030;
+  width: 67%;
+  text-align: left;
+  text-indent: 5px;
+}
+
+.button-group view.first image {
+  width: 30px;
+  height: 30px;
+  margin-top: 15px;
+  float: left;
+  margin-left: 20px;
 }
 
 .button-group view.share {
@@ -145,15 +155,17 @@
 }
 
 .button-group view text {
-  display: block;
+  display: inline-block;
   color: #fff;
-  font-size: 15px;
-  height: 40px;
-  line-height: 40px;
+  font-size: 19px;
+  height: 60px;
+  line-height: 60px;
+  padding-right: 20px;
 }
 
 .button-group view text:nth-of-type(2) {
-  font-size: 13px;
-  height: 20px;
-  line-height: 5px;
+  display: inline-block;
+  font-size: 25px;
+  height: 60px;
+  line-height: 60px;
 }

@@ -13,14 +13,20 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "selectedColor": "#f7de62",
+    "color": "#4f4f4f",
     "list": [
       {
         "pagePath": "pages/home/home",
-        "text": "首页"
+        "text": "首页",
+        "iconPath": "asset/index.png",
+        "selectedIconPath": "asset/index_active.png"
       },
       {
         "pagePath": "pages/my/my",
-        "text": "跳转拼多多"
+        "text": "我的",
+        "iconPath": "asset/my.png",
+        "selectedIconPath": "asset/my_active.png"
       }
     ]
   }

@@ -6,11 +6,12 @@
 }
 
 .search-header {
-  height: 50px;
+  height: 40px;
   background-color: #f7de62;
   padding: 10px 0;
   width: 100%;
   top: 0;
+  position: fixed;
 }
 
 .search-header-search {
@@ -34,9 +35,10 @@
   float: left;
 }
 
-.search-main {
+.search-tags-list {
   padding: calc(5vw);
   font-size: 16px;
+  margin-top: 50px;
 }
 
 .search-title {
@@ -50,4 +52,110 @@
   margin: 0 5px 10px 0;
   padding: 10px 18px;
   border-radius: 20px;
+}
+
+.list-scroll-view {
+  height: calc(100vh - 120px);
+  display: block;
+  padding-top: calc(2vw);
+  background: #eee;
+  width: 100%;
+  position: fixed;
+  top: 110px;
+}
+
+.list-scroll-view-items {
+  min-height: calc(47vw);
+  float: left;
+  margin-left: calc(2vw);
+  width: calc(47vw);
+  margin-bottom: calc(2vw);
+  background-color: #fff;
+}
+
+.list-scroll-view-items-img {
+  width: calc(47vw);
+  height: calc(47vw);
+  display: block;
+}
+
+.list-scroll-view-items-name {
+  font-size: 14px;
+  height: 56px;
+  line-height: 18px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  padding: 0 5px;
+}
+
+.list-scroll-view-items-count {
+  display: block;
+  float: right;
+  color: #cfcfcf;
+  font-size: 14px;
+  height: 20px;
+  line-height: 5px;
+  padding: 0 5px;
+  margin-top: 10px;
+}
+
+.list-scroll-view-items-coupon {
+  display: block;
+  float: left;
+  color: red;
+  font-size: 14px;
+  height: 20px;
+  line-height: 15px;
+  padding: 0 5px;
+  margin-top: 10px;
+}
+
+.list-scroll-view-items-price {
+  color: #444;
+  font-size: 22px;
+  display: block;
+  width: 100%;
+  float: left;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.list-scroll-view-items-price text {
+  font-size: 14px;
+  padding-right: 3px;
+}
+
+.tag-scroll-view_H {
+  white-space: nowrap;
+  display: flex;
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  position: fixed;
+  top: 60px;
+}
+
+.tag-scroll-view-items {
+  width: 25%;
+  display: inline-block;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  color: #3d3d3d;
+}
+
+.tag-scroll-view-items text {
+  line-height: 40px;
+  height: 40px;
+  display: inline-block;
+  padding: 0 5px;
+  letter-spacing: 1px;
+}
+
+.tag-scroll-view-items.active text {
+  border-bottom: 2px solid #3d3d3d;
+  transition: width 2s ease 2s;
 }

@@ -1,1 +1,77 @@
 /* pages/my/my.wxss */
+
+.my-wrap {
+  background: #ebebf1;
+  width: calc(100vw);
+  height: calc(100vh);
+}
+
+.icon-right {
+  background: #fff url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAD5klEQVR4Xu3az4sURxQH8O9rNSAruhLwIAg5GARBDDogLOz0MN0VwwpeJAc9CAqRCEaFxIOIYIIHD4oBE4WYnMzFgGCCRNjpmdneNZCABIL4hwhRcXennzQ7C8vgTvf6mK4qeH2deV1Vn/5WV/8i6CYSIFG1FkMBhSFQQAUUCgjLNYEKKBQQlmsCFVAoICzXBCqgUEBYrglUQKGAsFwTqIBCAWG5JlABhQLCcusJnJ7ufhIEwf44Dn8RjsVKuVXATmdub5ZlXQDjRHQqiuo/W1EQNGoNcHq6WyMK2kTYvNx/IvrCN0QrgDleEFAXoE2DB983xMoBO50nu7Js8em78JYxmfmsMY1bgplVWWnlgMxM7XZ6H6DPC0Z5Jo7DHyuTeM+GKgdc7meSpPmqe9J3RGuAOVyrNXObiE77jGgVcAkxvUmE8wWI38RxeOM9Z9lIy6wD5qNrt9NLzLjqI6ITgEuIs18y8x3fEJ0B7J8TTxBRvris2i8iXImi8NuRzss17NwpwP458RiAe0QIVhsHM64bE15YwzhH9lfnAPORdjrp4SzjBwCtdx3RScAcLUnmPgOyPwBscBnRWcD+6txkxiMAG11FdBpwaTrPHej1em0iGhuC+IMx4VcjO9EN2bHzgP1LnH1Zxt2Vj74Gx8QMK4heAPZX5z1EnD8C+9ClJHoDmKN1u92di4vBX0TYtjoi3zWmcaqq6ewVYB/xoz7idhcQvQPM0dI03bGwgP8AbB0yna8ZE14cdRK9BEyS9ByA74ck8AVAk8aEzxRwQKAID+D/iYIwiur/jhov379XCSzCY8ardeuCZrM5+U8VeF4BlsCbJ+I4jhtzVeF5A1iEB/AiEQ5HUeNxlXheABbhMXMPCI4YU/+9ajznAYvxkAE4akz4mw08pwGL8AAwQMfjuP6rLTxnAUvgwZVPQJy7jCmDB8CZrxacAiyJ59Q7YmcAy+Dl746NCS/bPOcNtu0EYEk8Kw9Miw6WdcByeNU+4ytCW/m7VcCSePeMaRxfy6Cq/K81wJKfctyPovpRIuIqUdbSlhXAcnj8MIrCI0SU3204u1UOmCSzuwF+PkyEGX8aEx5yVm1FxyoHzNtOkvRrANffDcTJ+PimqVqttqCAQwSSZOY7gAav6Wbn57d/OjX18Rsf8KzfC7da6S0inMk7wsx/j4190JyYmHjtC551wLwDrdbMT0R0oNcbnzh4cO9Ln/CcAFxCfLrFmNoL3/CcAfQRbrnPVlZhn8EG+66AwqOpgAooFBCWawIVUCggLNcEKqBQQFiuCVRAoYCwXBOogEIBYbkmUAGFAsJyTaACCgWE5ZpAIeBbzUVRYHKbjrMAAAAASUVORK5CYII=') no-repeat calc(90vw) center;
+  background-size: 50rpx;
+}
+
+.my-header {
+  padding: 50rpx 30rpx;
+}
+
+.avatar {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  float: left;
+  margin-right: 30rpx;
+}
+
+.name {
+  display: inline-block;
+  font-size: 34rpx;
+}
+
+.roles {
+  display: block;
+  font-size: 32rpx;
+  height: 110rpx;
+  line-height: 110rpx;
+}
+
+.list {
+  margin-top: 30rpx;
+  padding-left: 30rpx;
+  background: #fff;
+}
+
+.list view {
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #e8e9e8;
+  font-size: 30rpx;
+}
+
+.list-right-icon {
+  float: left;
+  width: 40rpx;
+  height: 40rpx;
+  margin: 30rpx 20rpx 0 0;
+  display: block;
+}
+
+.weichat-auth {
+  background: #f7de62;
+  font-size: 26rpx;
+  color: #fff;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 20rpx;
+  float: right;
+  text-indent: -30rpx;
+  padding-right: 15rpx;
+  margin: 20rpx 50rpx 0 0;
+}
+
+.weichat-auth image {
+  float: left;
+  width: 120rpx;
+  height: 40rpx;
+  margin-top: 15rpx;
+}

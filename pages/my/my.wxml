@@ -1,2 +1,21 @@
 <!--pages/my/my.wxml-->
-<web-view src="https://mobile.yangkeduo.com/duo_coupon_landing.html?goods_id=2725324987&pid=1978175_27473377&cpsSign=CC1978175_27473377_c815a629fa8b2c3e0605eee12b7d8e20&duoduo_type=2&launch_wx=1"></web-view>
+<view class="my-wrap">
+  <view class="my-header icon-right">
+    <image src="{{userInfo.avatarUrl}}" class="avatar"></image>
+    <view class="roles">
+      <text class="name">{{userInfo.nickName}}</text>
+      <!-- <text>推手</text>
+      <text>合伙人权益</text> -->
+      <view class="weichat-auth">
+        <image src="/asset/icon-wechat.png"></image>
+        <text>微信授权</text>
+      </view>
+    </view>
+  </view>
+  <view class="list">
+    <view class="icon-right">
+      <image src="/asset/tech.png" class="list-right-icon"></image>新手教程</view>
+    <view class="icon-right">
+      <image src="/asset/my-order.png" class="list-right-icon"></image>我的自主订单</view>
+  </view>
+</view>

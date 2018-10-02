@@ -1,6 +1,5 @@
 // pages/home/home.js
 
-import getHomeTagData from '../../data/GetHomeTag.js'
 import productList from '../../data/ProductList.js'
 
 Page({
@@ -10,8 +9,9 @@ Page({
   data: {
     goodsOptList: [],
     activeIndex: 0,
-    productList: []
-
+    productList: [],
+    pageNum: 1,
+    oid: 1
   },
 
   /**
@@ -72,11 +72,18 @@ Page({
   },
 
   getGoodsOptList() {
-    const {
-      data
-    } = getHomeTagData;
-    this.setData({
-      goodsOptList: data.goods_opt_list
+    wx.request({
+      url: 'https://api.laituike.com/cps/api/home/getGoodsOpt',
+      data: {},
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'POST',
+      success: (res) => {
+        this.setData({
+          goodsOptList: res.data.data.goods_opt_list
+        })
+      }
     })
   },
 
@@ -86,16 +93,37 @@ Page({
       index
     } = el.currentTarget.dataset
     this.setData({
-      activeIndex: index
+      oid,
+      productList: [],
+      pageNum: 1
+    })
+    this.getProductList(() => {
+      this.setData({
+        activeIndex: index
+      })
     })
   },
 
-  getProductList() {
-    const {
-      goods_search_response
-    } = productList;
-    this.setData({
-      productList: goods_search_response.goods_list
+  getProductList(cb) {
+    wx.request({
+      url: 'https://api.laituike.com/cps/api/home/getSearchGoodsList',
+      data: {
+        "opt_id": this.data.oid,
+        "sort_type": 0,
+        "page": this.data.pageNum,
+        "page_size": 10
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'POST',
+      success: (res) => {
+        this.setData({
+          productList: [...this.data.productList, ...res.data.data.duoduojinbao_goods_list]
+        })
+        this.data.pageNum += 1
+        if (cb) cb();
+      }
     })
   },
 
@@ -105,9 +133,12 @@ Page({
     })
   },
 
-  handlerFocus(){
+  handlerFocus() {
     wx.navigateTo({
       url: `/pages/search/search`
     })
+  },
+  handlerScrollTolower() {
+    this.getProductList()
   }
 })
