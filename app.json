@@ -3,7 +3,6 @@
     "pages/home/home",
     "pages/search/search",
     "pages/detail/detail",
-    "pages/openwebview/openwebview",
     "pages/my/my"
   ],
   "window": {

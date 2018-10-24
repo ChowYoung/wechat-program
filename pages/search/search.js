@@ -26,7 +26,10 @@ Page({
     }],
     searchStatus: true,
     activeIndex: 0,
-    pageNum: 1
+    pageNum: 1,
+    sortUrl: '../../asset/sort-common.png',
+    salesType: 0,
+    sortType: 12
   },
 
   /**
@@ -89,6 +92,35 @@ Page({
   /**
    * 搜索钩子
    */
+  // 输入框钩子
+  handlerInput(e) {
+    const {
+      value
+    } = e.detail
+    this.setData({
+      searchValue: value
+    })
+    if (this.data.searchValue === '') {
+      this.setData({
+        searchStatus: true,
+        activeIndex: 0,
+        pageNum: 1,
+        sortUrl: '../../asset/sort-common.png',
+        salesType: 0,
+        sortType: 12,
+        productList: [],
+      })
+    }
+  },
+  // 搜索按钮钩子
+  handlerBtnSearch() {
+    this.setData({
+      pageNum: 1,
+      productList: []
+    })
+    this.handlerSearch()
+  },
+  // 标签点击搜索钩子
   handlerTapSearch(e) {
     const {
       code,
@@ -99,6 +131,7 @@ Page({
     })
     this.handlerSearch()
   },
+  // 键盘搜索按钮钩子
   handlerInputSearch(e) {
     this.setData({
       pageNum: 1,
@@ -112,16 +145,56 @@ Page({
       oid,
       index
     } = el.currentTarget.dataset
-    this.setData({
-      activeIndex: index
-    })
+    switch (index) {
+      case 0:
+        this.setData({
+          sortUrl: '../../asset/sort-common.png',
+          activeIndex: index,
+          sortType: 12,
+          pageNum: 1,
+          productList: [],
+          salesType: 0
+        })
+        break;
+      case 1:
+        this.setData({
+          sortUrl: '../../asset/sort-common.png',
+          activeIndex: index,
+          sortType: 8,
+          pageNum: 1,
+          productList: [],
+          salesType: 0
+        })
+        break;
+      case 2:
+        this.setData({
+          sortUrl: '../../asset/sort-common.png',
+          activeIndex: index,
+          sortType: 6,
+          pageNum: 1,
+          productList: [],
+          salesType: 0
+        })
+        break;
+      case 3:
+        this.setData({
+          sortUrl: this.data.salesType > 0 ? '../../asset/sort-down.png' : '../../asset/sort-up.png',
+          activeIndex: index,
+          salesType: this.data.salesType > 0 ? 0 : 1,
+          sortType: this.data.salesType > 0 ? 4 : 3,
+          pageNum: 1,
+          productList: []
+        })
+        break;
+    }
+    this.handlerSearch()
   },
   handlerSearch() {
     wx.request({
       url: 'https://api.laituike.com/cps/api/home/getSearchGoodsList',
       data: {
         "keyword": this.data.searchValue,
-        "sort_type": 0,
+        "sort_type": this.data.sortType,
         "page": this.data.pageNum,
         "page_size": 10
       },
@@ -142,5 +215,5 @@ Page({
     wx.navigateTo({
       url: `/pages/detail/detail?id=${event.currentTarget.dataset.gid}`
     })
-  },
+  }
 })

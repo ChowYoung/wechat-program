@@ -145,6 +145,7 @@
   line-height: 50px;
   font-size: 18px;
   color: #3d3d3d;
+  position: relative;
 }
 
 .tag-scroll-view-items text {
@@ -158,4 +159,13 @@
 .tag-scroll-view-items.active text {
   border-bottom: 2px solid #3d3d3d;
   transition: width 2s ease 2s;
+}
+
+.tag-scroll-view-items image {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 10px;
 }

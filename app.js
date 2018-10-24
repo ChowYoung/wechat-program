@@ -1,6 +1,6 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function() {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -9,12 +9,41 @@ App({
     // 登录
     wx.login({
       success: res => {
+        const {
+          code
+        } = res
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.request({
+          url: 'https://api.laituike.com/cps/api/user/author',
+          data: {
+            code
+          },
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          method: 'POST',
+          success: (res) => {
+            this.globalData.cpsToken = res.data.data.cps_token
+          },
+          fail: (res) => {
+            console.log(res)
+          }
+        })
+      }
+    })
+    wx.getUserInfo({
+      success: res => {
+        this.globalData.userInfo = res.userInfo
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
       }
     })
     // 获取用户信息
     wx.getSetting({
       success: res => {
+        console.log(res)
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
@@ -34,6 +63,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    cpsToken:''
   }
 })

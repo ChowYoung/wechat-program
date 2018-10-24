@@ -1,8 +1,8 @@
 <!--pages/search/search.wxml-->
 <view class="search-wrap">
   <view class="search-header">
-    <input placeholder="搜索优惠商品" value="{{searchValue}}" class="search-header-search" type="text" confirm-type="search" bindconfirm="handlerInputSearch" />
-    <text class="search-btn">搜索</text>
+    <input placeholder="搜索优惠商品" value="{{searchValue}}" class="search-header-search" type="text" confirm-type="search" bindconfirm="handlerInputSearch" bindinput="handlerInput" />
+    <text class="search-btn" bindtap="handlerBtnSearch">搜索</text>
   </view>
   <view class="search-tags-list" wx:if="{{searchStatus}}">
     <text class="search-title">热搜</text>
@@ -15,6 +15,7 @@
       <block wx:for="{{searchType}}" wx:key="{{index}}">
         <view data-oid="{{item.type}}" data-index="{{index}}" class="{{index==activeIndex?'tag-scroll-view-items active':'tag-scroll-view-items'}}" bindtap="getSearchType">
           <text>{{item.name}}</text>
+          <image src="{{sortUrl}}" wx:if="{{index===3}}"></image>
         </view>
       </block>
     </view>

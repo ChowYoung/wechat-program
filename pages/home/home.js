@@ -11,7 +11,7 @@ Page({
     activeIndex: 0,
     productList: [],
     pageNum: 1,
-    oid: 1
+    oid: 0
   },
 
   /**
@@ -83,6 +83,9 @@ Page({
         this.setData({
           goodsOptList: res.data.data.goods_opt_list
         })
+      },
+      fail: (res) => {
+        console.log(res)
       }
     })
   },

@@ -1,5 +1,5 @@
 // pages/detail/detail.js
-
+const app = getApp()
 Page({
 
   /**
@@ -50,7 +50,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    console.log(this)
+
   },
 
   /**
@@ -91,16 +91,18 @@ Page({
     wx.request({
       url: 'https://api.laituike.com/cps/api/product/getGoodsPromotionUrl',
       data: {
-        "goods_id_list": `[${this.data.productDetailId}]`
+        "goods_id_list": `[${this.data.productDetailId}]`,
+        "cps_token": app.globalData.cpsToken
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       method: 'POST',
       success: (res) => {
-        wx.navigateTo({
-          url: `/pages/openwebview/openwebview?url=${res.data.data.goods_promotion_url_list[0].we_app_web_view_url}`
-        })
+        wx.navigateToMiniProgram({
+          appId: res.data.data.goods_promotion_url_list[0].app_id,
+          path: res.data.data.goods_promotion_url_list[0].page_path
+        });
       }
     })
   }
