@@ -1,15 +1,9 @@
 <!--pages/my/my.wxml-->
 <view class="my-wrap">
   <view class="my-header icon-right">
-    <image src="{{userInfo.avatarUrl}}" class="avatar"></image>
+    <open-data type="userAvatarUrl" class="avatar"></open-data>
     <view class="roles">
-      <text class="name">{{userInfo.nickName}}</text>
-      <!-- <text>推手</text>
-      <text>合伙人权益</text> -->
-      <view class="weichat-auth">
-        <image src="/asset/icon-wechat.png"></image>
-        <text>微信授权</text>
-      </view>
+      <open-data type="userNickName" lang="zh_CN" class="name"></open-data>
     </view>
   </view>
   <view class="list">

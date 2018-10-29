@@ -21,6 +21,7 @@
   border-radius: 50%;
   float: left;
   margin-right: 30rpx;
+  overflow: hidden;
 }
 
 .name {
