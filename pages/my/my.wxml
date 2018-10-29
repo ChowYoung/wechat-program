@@ -9,7 +9,7 @@
   <view class="list">
     <view class="icon-right">
       <image src="/asset/tech.png" class="list-right-icon"></image>新手教程</view>
-    <view class="icon-right">
+    <view class="icon-right" bindtap='jumpOrder'>
       <image src="/asset/my-order.png" class="list-right-icon"></image>我的自主订单</view>
   </view>
 </view>

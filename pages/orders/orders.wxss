@@ -1,0 +1,183 @@
+/* pages/orders/orders.wxss */
+
+.clearfloat:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
+}
+
+.clearfloat {
+  zoom: 1;
+}
+
+.order-wrap {
+  background: #f4f4f4;
+  height: calc(100vh);
+}
+
+.order-header {
+  background-color: #fff;
+  padding: 10px 0 0;
+  width: 100%;
+}
+
+.order-header-search {
+  background-color: #ececec;
+  border-radius: 20px;
+  height: 40px;
+  width: calc(73vw);
+  float: left;
+  margin-left: calc(5vw);
+  font-size: 14px;
+  padding-left: calc(7vw);
+}
+
+.search-btn {
+  width: calc(15vw);
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+  text-align: center;
+  display: block;
+  float: left;
+}
+
+.classify {
+  width: 100%;
+  float: left;
+}
+
+.classify view {
+  width: 33.3333333%;
+  display: inline-block;
+  padding: 20px 0;
+  position: relative;
+}
+
+.classify view text {
+  display: block;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 17px;
+  color: #9b9b9b;
+}
+
+.classify view:nth-of-type(1) text, .classify view:nth-of-type(2) text {
+  border-right: 1px solid #f5f5f5;
+}
+
+.classify view.active text {
+  color: #000;
+}
+
+.classify view.active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 40%;
+  background: #000;
+  bottom: 0;
+  left: 50%;
+  margin-left: -20%;
+}
+
+.order-body {
+  width: 100%;
+  background: #fff;
+  margin-top: 10px;
+}
+
+.order-body .status {
+  height: 50px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.order-body .status view {
+  width: 25%;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+}
+
+.order-body .status view.active text {
+  color: #000;
+}
+
+.order-body .status view text {
+  display: block;
+  font-size: 15px;
+  color: #9b9b9b;
+  height: 30px;
+  line-height: 30px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.status view:nth-of-type(1) text, .status view:nth-of-type(2) text,
+.status view:nth-of-type(3) text {
+  border-right: 1px solid #f5f5f5;
+}
+
+.order-list {
+  padding: calc(3vw);
+}
+
+.order-detail {
+  margin-bottom: calc(6vw);
+}
+
+.order-detail .list-scroll-view-items-img {
+  display: block;
+  width: calc(30vw);
+  height: calc(30vw);
+  float: left;
+}
+
+.goods-name {
+  color: #3f3f3f;
+  font-size: 17px;
+  margin-left: calc(3vw);
+  display: block;
+}
+
+.order-detail-header {
+  position: relative;
+  margin-bottom: calc(3vw);
+}
+
+.goods-status {
+  position: absolute;
+  font-size: 15px;
+  bottom: 0;
+  right: calc(10vw);
+  color: #9b9b9b;
+}
+
+.order-content {
+  background: #f4f4f4;
+  padding: calc(3vw);
+  border-radius: 5px;
+}
+
+.order-content text {
+  display: block;
+  font-size: 15px;
+  color: #909090;
+  height: 30px;
+  line-height: 30px;
+}
+
+.planGet {
+  font-size: 15px;
+  margin-top: calc(2vw);
+  display: block;
+}
+
+.planGet text {
+  font-size: 28px;
+  letter-spacing: 1px;
+}

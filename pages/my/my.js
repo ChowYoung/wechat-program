@@ -60,4 +60,9 @@ Page({
   onShareAppMessage: function() {
 
   },
+  jumpOrder() {
+    wx.navigateTo({
+      url: '/pages/orders/orders'
+    })
+  },
 })
