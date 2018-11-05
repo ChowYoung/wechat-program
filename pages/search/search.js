@@ -29,7 +29,7 @@ Page({
     pageNum: 1,
     sortUrl: '../../asset/sort-common.png',
     salesType: 0,
-    sortType: 12
+    sortType: 12,
   },
 
   /**

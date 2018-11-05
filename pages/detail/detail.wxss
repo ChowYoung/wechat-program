@@ -169,3 +169,68 @@
   height: 60px;
   line-height: 60px;
 }
+
+.layer {
+  width: calc(100vw);
+  height: calc(100vh);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.4;
+  z-index: 998;
+}
+
+.out-box {
+  width: calc(100vw);
+  height: 300px;
+  background: #fff;
+  position: absolute;
+  z-index: 999;
+  top: calc(100vh);
+  left: -1000px;
+}
+
+.lf0 {
+  left: 0;
+}
+
+.out-box .out-box-header {
+  height: 50px;
+  background: #f7de62;
+  width: 100%;
+  text-align: center;
+  line-height: 50px;
+}
+
+.out-box-main text {
+  display: block;
+  font-size: 14px;
+}
+
+.info {
+  margin: 10px 20px 0;
+  padding: 10px;
+  background: #f4f4f4;
+  border-radius: 4px;
+}
+
+.operator {
+  margin: 20px;
+}
+
+.operator view {
+  width: 33.3333%;
+  float: left;
+}
+
+.operator view image {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 10px;
+}
+
+.operator view text {
+  text-align: center;
+}

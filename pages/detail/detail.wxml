@@ -42,7 +42,35 @@
     <text>¥{{detailInfo.min_group_price}}  (赚¥{{detailInfo.after_coupon_price}})</text>
   </view> -->
 
-  <view class="share">
+  <view class="share" bindtap='outBox'>
     分享
   </view>
+</view>
+<view animation="{{animationData}}" class="{{outBoxStatus==true?'out-box lf0':'out-box'}}">
+  <view class="out-box-header">分享</view>
+  <view class="out-box-main">
+    <view class="info">
+      <text>{{detailInfo.goods_name}}</text>
+      <text>原价：¥{{detailInfo.min_group_price}}</text>
+      <text>劵后价：¥{{detailInfo.after_coupon_price}}</text>
+      <text>下单地址：{{jumpUrl.goods_promotion_url_list[0].short_url}}</text>
+    </view>
+    <view class="operator">
+      <view class="copy">
+        <image src='/asset/icon-copy.png'></image>
+        <text bindtap='copyWord'>复制文案</text>
+      </view>
+      <view class="image">
+        <image src='/asset/icon-image.png'></image>
+        <text bindtap='copyWord'>生成图片</text>
+      </view>
+      <view class="share">
+        <image src='/asset/icon-share.png'></image>
+        <text bindtap='copyWord'>直接分享</text>
+      </view>
+    </view>
+
+  </view>
+</view>
+<view class="layer" wx:if="{{outBoxStatus}}" bindtap='outBoxHide'>
 </view>

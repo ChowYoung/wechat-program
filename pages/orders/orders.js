@@ -1,63 +1,46 @@
 // pages/orders/orders.js
 const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    orderList: [{
-      goods_thumbnail_url: "http://xcxcdn.yangkeduo.com/duobaoSpread/2543453159/1000098_11919498/2.jpg",
-      goods_name: "儿童衣服衣服衣服衣服衣服",
-      order_title: "【小程序】自主订单",
-      order_pay_time: "2018-10-03 21:09:23",
-      order_create_time: "2018-10-03 21:08:23",
-      order_receive_time: "2018-10-06 10:09:22",
-      order_sn: "19820-72342389423894",
-      order_amount: 9.80,
-      order_status_desc: "待结算",
+    orderList: [],
+    orderType: [{
+      name: "本月订单",
+      time_type: 'this_month'
     }, {
-      goods_thumbnail_url: "http://xcxcdn.yangkeduo.com/duobaoSpread/2543453159/1000098_11919498/2.jpg",
-      goods_name: "儿童衣服衣服衣服衣服衣服",
-      order_title: "【小程序】自主订单",
-      order_pay_time: "2018-10-03 21:09:23",
-      order_create_time: "2018-10-03 21:08:23",
-      order_receive_time: "2018-10-06 10:09:22",
-      order_sn: "19820-72342389423894",
-      order_amount: 9.80,
-      order_status_desc: "待结算",
+      name: "上月订单",
+      time_type: 'last_month'
     }, {
-      goods_thumbnail_url: "http://xcxcdn.yangkeduo.com/duobaoSpread/2543453159/1000098_11919498/2.jpg",
-      goods_name: "儿童衣服衣服衣服衣服衣服",
-      order_title: "【小程序】自主订单",
-      order_pay_time: "2018-10-03 21:09:23",
-      order_create_time: "2018-10-03 21:08:23",
-      order_receive_time: "2018-10-06 10:09:22",
-      order_sn: "19820-72342389423894",
-      order_amount: 9.80,
-      order_status_desc: "待结算",
+      name: "上上月订单",
+      time_type: 'last_last_month'
+    }],
+    orderTypeActiveIndex: 0,
+    orderTimeType: "this_month",
+    searchType: 'all',
+    searchStatusType: '',
+    statusType: [{
+      name: "全部",
+      search_type: 'all',
+      status: -1
     }, {
-      goods_thumbnail_url: "http://xcxcdn.yangkeduo.com/duobaoSpread/2543453159/1000098_11919498/2.jpg",
-      goods_name: "儿童衣服衣服衣服衣服衣服",
-      order_title: "【小程序】自主订单",
-      order_pay_time: "2018-10-03 21:09:23",
-      order_create_time: "2018-10-03 21:08:23",
-      order_receive_time: "2018-10-06 10:09:22",
-      order_sn: "19820-72342389423894",
-      order_amount: 9.80,
-      order_status_desc: "待结算",
+      name: "待支付",
+      search_type: 'status',
+      status: 0
     }, {
-      goods_thumbnail_url: "http://xcxcdn.yangkeduo.com/duobaoSpread/2543453159/1000098_11919498/2.jpg",
-      goods_name: "儿童衣服衣服衣服衣服衣服",
-      order_title: "【小程序】自主订单",
-      order_pay_time: "2018-10-03 21:09:23",
-      order_create_time: "2018-10-03 21:08:23",
-      order_receive_time: "2018-10-06 10:09:22",
-      order_sn: "19820-72342389423894",
-      order_amount: 9.80,
-      order_status_desc: "待结算",
-    }]
-
+      name: "已支付",
+      search_type: 'status',
+      status: 1
+    }, {
+      name: "已失效",
+      search_type: 'status',
+      status: 4
+    }],
+    statusTypeActiveIndex: 0,
+    pageNum: 1,
+    searchValue: '',
+    searchStatus: false
   },
 
   /**
@@ -116,26 +99,109 @@ Page({
 
   },
   getOrderList() {
+    let data = {
+      "time_type": this.data.orderTimeType,
+      "cps_token": app.globalData.cpsToken,
+      "page": this.data.pageNum,
+      "page_size": 10,
+      "search_type": this.data.searchType,
+    }
+    if (this.data.searchValue) {
+      Object.assign(data, {
+        "order_sn": this.data.searchValue,
+      })
+    }
+    if (this.data.searchStatusType > -1) {
+      Object.assign(data, {
+        "status": this.data.searchStatusType
+      })
+    }
     wx.request({
       url: 'https://api.laituike.com/cps/api/order/getOrderList',
-      data: {
-        "time_type": "this_month",
-        "cps_token": app.globalData.cpsToken,
-        "page": 1,
-        "page_size": 10
-      },
+      data,
       header: {
         'content-type': 'application/json' // 默认值
       },
       method: 'POST',
       success: (res) => {
         this.setData({
-          goodsOptList: res.data.data.goods_opt_list
+          orderList: [...this.data.orderList, ...res.data.data.order_list]
         })
       },
       fail: (res) => {
         console.log(res)
       }
     })
+  },
+  getOrderByType(el) {
+    const {
+      index,
+      ordertype
+    } = el.currentTarget.dataset
+    this.setData({
+      orderTypeActiveIndex: index,
+      orderTimeType: ordertype,
+      orderList: [],
+      pageNum: 1
+    })
+    this.getOrderList()
+  },
+  getOrderByStatus(el) {
+    const {
+      index,
+      statustype,
+      searchtype
+    } = el.currentTarget.dataset
+    this.setData({
+      statusTypeActiveIndex: index,
+      searchType: searchtype,
+      searchStatusType: statustype,
+      orderList: [],
+      pageNum: 1
+    })
+    this.getOrderList()
+  },
+  scrollViewHandler() {
+    this.data.pageNum += 1
+    this.getOrderList();
+  },
+  handlerInput(e) {
+    const {
+      value
+    } = e.detail
+    this.setData({
+      searchValue: value,
+      searchStatus: true,
+      orderList: [],
+    })
+    if (this.data.searchValue === '') {
+      this.setData({
+        searchStatus: false,
+        searchType: 'all',
+        orderTimeType: 'this_month',
+        orderTypeActiveIndex: 0,
+        statusTypeActiveIndex: 0,
+        pageNum: 1
+      })
+      this.getOrderList()
+    }
+  },
+  // 搜索按钮钩子
+  handlerBtnSearch() {
+    this.setData({
+      pageNum: 1,
+      searchType: 'order_sn',
+      orderTimeType: '',
+    })
+    this.getOrderList()
+  },
+  handlerInputSearch(e) {
+    this.setData({
+      pageNum: 1,
+      searchValue: e.detail.value,
+      searchType: 'order_sn',
+      orderTimeType: '',
+    })
+    this.getOrderList()
   },
 })

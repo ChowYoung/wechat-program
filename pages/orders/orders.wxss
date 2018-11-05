@@ -14,13 +14,18 @@
 
 .order-wrap {
   background: #f4f4f4;
-  height: calc(100vh);
+  height: calc(100vh - 1px);
+  padding-top: 1px;
+  overflow: hidden;
 }
 
 .order-header {
   background-color: #fff;
   padding: 10px 0 0;
   width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 99;
 }
 
 .order-header-search {
@@ -88,12 +93,18 @@
 .order-body {
   width: 100%;
   background: #fff;
-  margin-top: 10px;
+  margin-top: 140px;
+  min-height: 50px;
 }
 
 .order-body .status {
   height: 50px;
   border-bottom: 1px solid #f5f5f5;
+  position: fixed;
+  width: 100%;
+  top: 140px;
+  background: #fff;
+  z-index: 99;
 }
 
 .order-body .status view {
@@ -123,11 +134,12 @@
 }
 
 .order-list {
-  padding: calc(3vw);
+  margin-top: 190px;
 }
 
 .order-detail {
   margin-bottom: calc(6vw);
+  padding: calc(3vw);
 }
 
 .order-detail .list-scroll-view-items-img {
@@ -140,7 +152,7 @@
 .goods-name {
   color: #3f3f3f;
   font-size: 17px;
-  margin-left: calc(3vw);
+  margin-left: calc(32vw);
   display: block;
 }
 
@@ -151,9 +163,9 @@
 
 .goods-status {
   position: absolute;
-  font-size: 15px;
+  font-size: 18px;
   bottom: 0;
-  right: calc(10vw);
+  right: 0;
   color: #9b9b9b;
 }
 
@@ -180,4 +192,33 @@
 .planGet text {
   font-size: 28px;
   letter-spacing: 1px;
+}
+
+.order-list-scroll-view {
+  height: calc(100vh - 190px);
+}
+
+.order-list-scroll-view-60 {
+  height: calc(100vh - 60px);
+}
+
+.noMore {
+  position: fixed;
+  top: 300px;
+  text-align: center;
+  background: #f4f4f4;
+  width: 100%;
+  color: #9f9f9f;
+}
+
+.bgWhite {
+  background: #fff;
+}
+
+.mt60 {
+  margin-top: 60px;
+}
+
+.noMt {
+  margin-top: 0;
 }
