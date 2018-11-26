@@ -173,7 +173,7 @@
 .layer {
   width: calc(100vw);
   height: calc(100vh);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background: #000;
@@ -185,7 +185,7 @@
   width: calc(100vw);
   height: 300px;
   background: #fff;
-  position: absolute;
+  position: fixed;
   z-index: 999;
   top: calc(100vh);
   left: -1000px;
@@ -233,4 +233,52 @@
 
 .operator view text {
   text-align: center;
+}
+
+.scroll-lock {
+  height: calc(100vh - 250px);
+  overflow-y: hidden;
+}
+
+.share button {
+  background: #fff;
+  border: none;
+  padding-left: 0;
+  padding-right: 0;
+  height: 77px;
+  line-height: 18px;
+  outline: none;
+}
+
+.share button:after {
+  border: none;
+  outline: none;
+}
+
+.imgBox {
+  width: calc(70vw);
+  height: calc(100vh - 40px);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  z-index: 999;
+}
+
+.canvasWrap {
+  width: 100%;
+  height: calc(70vh);
+  background: #fff;
+}
+
+.saveNow {
+  position: relative;
+  z-index: 999;
+  width: 100px;
+  margin: 10px auto;
+  background: #f7de62;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 14px;
+  border-radius: 4px;
 }

@@ -29,5 +29,8 @@
         "selectedIconPath": "asset/my_active.png"
       }
     ]
-  }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx32540bd863b27570"
+  ]
 }
