@@ -68,7 +68,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    return {
+      // title: this.data.detailInfo.goods_name,
+      title: '拼多多内部券平台，领券下单享内部折扣',
+      path: 'pages/home/home',
+      imageUrl: 'https://image.laituike.com/wxapp/share.png'
+    }
   },
 
   getGoodsOptList() {

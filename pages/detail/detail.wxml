@@ -33,7 +33,7 @@
 <view class="button-group">
   <view class="first" bindtap='jumpUrl'>
     <image src='/asset/icon-shopcar.png'></image>
-    <text>自买</text>
+    <text>领券下单</text>
     <text>¥{{detailInfo.after_coupon_price}}</text>
   </view>
 

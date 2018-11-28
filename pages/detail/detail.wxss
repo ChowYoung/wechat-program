@@ -121,7 +121,7 @@
   right: 0;
   bottom: 0;
   height: 60px;
-  background: #393939;
+  background: #EC6936;
 }
 
 .button-group view {
@@ -145,7 +145,7 @@
 }
 
 .button-group view.share {
-  background: #c20015;
+  background: #FFD110;
   height: 60px;
   line-height: 60px;
   float: right;

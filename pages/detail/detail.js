@@ -57,6 +57,10 @@ Page({
         wx.setBackgroundColor({
           backgroundColor: '#f7de62'
         })
+        wx.setNavigationBarTitle({
+          title: this.data.detailInfo.goods_name 
+        })
+
         this.getJumpUrl()
         this.getQrcode()
       }
@@ -186,7 +190,7 @@ Page({
     const wxGetImageInfo = promisify(wx.getImageInfo)
     Promise.all([
       wxGetImageInfo({
-        src: that.data.goods_gallery_urls[0].replace('http','https')
+        src: that.data.goods_gallery_urls[0].replace('http', 'https')
       }),
       wxGetImageInfo({
         src: that.data.qrcode

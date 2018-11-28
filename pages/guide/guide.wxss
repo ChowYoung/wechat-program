@@ -1,0 +1,16 @@
+/* pages/guide/guide.wxss */
+
+.guide {
+  padding: 0 10px;
+}
+
+.guide text {
+  display: block;
+  font-size: 14px;
+  padding:10px 0;
+}
+
+.guide image {
+  display: block;
+  width: 100%;
+}
