@@ -115,7 +115,7 @@ Page({
   onShareAppMessage(res) {
     return {
       title: this.data.detailInfo.goods_name,
-      path: 'pages/detail/detail?id=' + this.data.productDetailId
+      path: 'pages/home/home?detailId=' + this.data.productDetailId
     }
   },
   getJumpUrl() {
