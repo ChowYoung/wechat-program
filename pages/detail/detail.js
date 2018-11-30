@@ -281,6 +281,7 @@ Page({
       },
       method: 'POST',
       success: (res) => {
+        console.log(res)
         _this.setData({
           qrcode: res.data.data.shareUrl
         })

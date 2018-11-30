@@ -21,7 +21,10 @@
       <text class="list-scroll-view-items-count">
       销量{{item.sold_quantity}}
       </text>
-      <text class="list-scroll-view-items-price"><text>¥</text>{{item.min_group_price}}</text>
+      <view class="list-scroll-view-items-price-group">
+        <text class="list-scroll-view-items-price"><text>¥</text>{{item.after_coupon_price}}</text>
+        <text class="list-scroll-view-items-price-before"><text>原价¥</text>{{item.min_group_price}}</text>
+      </view>
     </view>
   </block>
 </scroll-view>

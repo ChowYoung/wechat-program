@@ -1,6 +1,6 @@
 <!--pages/guide/guide.wxml-->
 <view class="guide">
-  <text>1. 在券福利中，搜索或者选择需要的商品。</text>
+  <text>1. 在斑马折扣中，搜索或者选择需要的商品。</text>
   <image src="https://image.laituike.com/wxapp/guide1.jpg" mode="widthFix"></image>
   <text>2. 在商品详情页领券下单。</text>
   <image src="https://image.laituike.com/wxapp/guide2.jpg" mode="widthFix"></image>

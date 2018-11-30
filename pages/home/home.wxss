@@ -109,17 +109,32 @@
   margin-top: 10px;
 }
 
+.list-scroll-view-items-price-group {
+  display: block;
+  height: 30px;
+}
+
 .list-scroll-view-items-price {
   color: #444;
   font-size: 22px;
-  display: block;
-  width: 100%;
   float: left;
   font-weight: bold;
   padding-left: 5px;
+  line-height: 30px;
 }
 
 .list-scroll-view-items-price text {
+  padding-right: 3px;
+}
+
+.list-scroll-view-items-price-before {
+  color: #cfcfcf;
   font-size: 14px;
+  float: right;
+  line-height: 30px;
+  padding-right: 5px;
+}
+
+.list-scroll-view-items-price-before text {
   padding-right: 3px;
 }
