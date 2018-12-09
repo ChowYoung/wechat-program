@@ -20,7 +20,7 @@ Page({
   onLoad: function(options) {
     if (options.detailId){
       wx.navigateTo({
-        url: `/pages/detail/detail?id=${options.detailId}`
+        url: `/pages/detail/detail?id=${options.detailId}&share=true`
       })
     }
   },

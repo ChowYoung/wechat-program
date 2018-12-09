@@ -38,6 +38,36 @@ Page({
         })
       }
     })
+    if (options.share) {
+      wx.login({
+        success: res => {
+          const {
+            code
+          } = res
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          wx.request({
+            url: 'https://api.laituike.com/cps/api/user/author',
+            data: {
+              code
+            },
+            header: {
+              'content-type': 'application/json' // 默认值
+            },
+            method: 'POST',
+            success: (res) => {
+              app.globalData.cpsToken = res.data.data.cps_token
+              this.getJumpUrl()
+              this.getQrcode()
+            },
+            fail: (res) => {
+              console.log(res)
+            }
+          })
+        }
+      })
+    }
+
+
     wx.request({
       url: 'https://api.laituike.com/cps/api/product/getGoodsDetail',
       data: {
@@ -58,9 +88,9 @@ Page({
           backgroundColor: '#f7de62'
         })
         wx.setNavigationBarTitle({
-          title: this.data.detailInfo.goods_name 
+          title: this.data.detailInfo.goods_name
         })
-
+        if (options.share) return
         this.getJumpUrl()
         this.getQrcode()
       }
