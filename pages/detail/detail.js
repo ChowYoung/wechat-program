@@ -28,6 +28,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中',
+    })
     let that = this;
     wx.getSystemInfo({
       success: function(res) {
@@ -145,7 +148,8 @@ Page({
   onShareAppMessage(res) {
     return {
       title: this.data.detailInfo.goods_name,
-      path: 'pages/home/home?detailId=' + this.data.productDetailId
+      path: 'pages/home/home?detailId=' + this.data.productDetailId,
+      imageUrl: this.data.goods_gallery_urls[0]
     }
   },
   getJumpUrl() {
@@ -163,6 +167,7 @@ Page({
         this.setData({
           jumpUrl: res.data.data
         })
+        wx.hideLoading()
       }
     })
   },
@@ -261,7 +266,7 @@ Page({
       }
       ctx.setFillStyle('red')
       ctx.setFontSize(13)
-      ctx.fillText('5元优惠券', 10, that.data.windowWidth * 0.7 + 50 + row.length * 20)
+      ctx.fillText(that.data.detailInfo.coupon_discount + '元优惠券', 10, that.data.windowWidth * 0.7 + 50 + row.length * 20)
       // 小程序码
       ctx.drawImage(res[1].path, that.data.windowWidth * 0.7 * 0.5, that.data.windowWidth * 0.7 + 20, that.data.windowWidth * 0.7 * 0.4, that.data.windowWidth * 0.7 * 0.4)
       ctx.stroke()
