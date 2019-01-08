@@ -243,7 +243,7 @@ Page({
       ctx.setFontSize(12)
       ctx.fillText('劵后价', 17, that.data.windowWidth * 0.7 + 25);
       ctx.setFontSize(16)
-      ctx.fillText(`￥${that.data.detailInfo.min_group_price}`, 60, that.data.windowWidth * 0.7 + 25);
+      ctx.fillText(`￥${that.data.detailInfo.after_coupon_price}`, 60, that.data.windowWidth * 0.7 + 25);
       ctx.setTextAlign('left')
       ctx.setFillStyle('#000000')
       ctx.setFontSize(13)
